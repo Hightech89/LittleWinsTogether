@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const HERO_HEADLINE = "Celebrate Every Little Win Together";
 const HERO_SUBHEADING = "A supportive community for parents raising children with autism.";
 const PRIMARY_CTA = "Join the Community";
@@ -23,18 +25,18 @@ export default function HomePage() {
               {HERO_SUBHEADING}
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              <button
-                type="button"
+              <Link
+                href="/signup"
                 className="rounded-full bg-calm-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-calm-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 {PRIMARY_CTA}
-              </button>
-              <button
-                type="button"
+              </Link>
+              <Link
+                href="/conversations"
                 className="rounded-full border border-calm-100 bg-white px-5 py-2.5 text-sm font-medium text-calm-700 transition-colors hover:border-calm-200 hover:bg-calm-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 {SECONDARY_CTA}
-              </button>
+              </Link>
             </div>
           </div>
         </section>

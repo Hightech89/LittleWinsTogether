@@ -25,13 +25,13 @@ export default function RootLayout(props: { children: React.ReactNode }) {
               <div className="flex items-center gap-4">
                 <Link
                   href="/conversations"
-                  className="rounded-full px-3 py-1 text-sm text-slate-600 transition-colors hover:bg-white/60 hover:text-calm-700"
+                  className="rounded-full px-3 py-1 text-sm font-medium text-calm-700 transition-colors hover:bg-white/60 hover:text-calm-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 >
                   Browse Conversations
                 </Link>
                 <Link
                   href="/signin"
-                  className="rounded-full px-3 py-1 text-sm text-slate-600 transition-colors hover:bg-white/60 hover:text-calm-700"
+                  className="rounded-full px-3 py-1 text-sm font-medium text-calm-700 transition-colors hover:bg-white/60 hover:text-calm-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 >
                   Sign In
                 </Link>

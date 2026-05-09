@@ -16,9 +16,12 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4">
           <header className="pt-4 border-b border-white/60">
             <nav className="flex items-center justify-between text-sm text-slate-600">
-              <span className="font-medium text-slate-800">
+              <Link
+                href="/"
+                className="rounded-full px-3 py-1 text-sm font-medium text-calm-700 transition-colors hover:bg-white/60 hover:text-calm-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
                 Little Wins Together
-              </span>
+              </Link>
               <div className="flex items-center gap-4">
                 <Link
                   href="/conversations"

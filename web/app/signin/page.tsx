@@ -14,12 +14,20 @@ export default function SignInPage() {
               Account access is coming soon. Soon you&rsquo;ll be able to join the community, post conversations, and reply with a display name.
             </p>
           </div>
-          <Link
-            href="/conversations"
-            className="inline-flex rounded-full border border-calm-100 bg-white px-5 py-2.5 text-sm font-medium text-calm-700 transition-colors hover:border-calm-200 hover:bg-calm-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-          >
-            Browse Conversations
-          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/signup"
+              className="inline-flex rounded-full bg-calm-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-calm-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              Create an account
+            </Link>
+            <Link
+              href="/conversations"
+              className="inline-flex rounded-full border border-calm-100 bg-white px-5 py-2.5 text-sm font-medium text-calm-700 transition-colors hover:border-calm-200 hover:bg-calm-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              Browse Conversations
+            </Link>
+          </div>
         </div>
       </section>
     </main>

@@ -26,7 +26,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="/signin"
+                href="/signup"
                 className="rounded-full bg-calm-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-calm-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-calm-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 {PRIMARY_CTA}

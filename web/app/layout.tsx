@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -19,18 +20,18 @@ export default function RootLayout(props: { children: React.ReactNode }) {
                 Little Wins Together
               </span>
               <div className="flex items-center gap-4">
-                <button
-                  type="button"
+                <Link
+                  href="/conversations"
                   className="rounded-full px-3 py-1 text-sm text-slate-600 transition-colors hover:bg-white/60 hover:text-calm-700"
                 >
                   Browse Conversations
-                </button>
-                <button
-                  type="button"
+                </Link>
+                <Link
+                  href="/signin"
                   className="rounded-full px-3 py-1 text-sm text-slate-600 transition-colors hover:bg-white/60 hover:text-calm-700"
                 >
                   Sign In
-                </button>
+                </Link>
               </div>
             </nav>
           </header>

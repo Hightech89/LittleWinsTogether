@@ -16,7 +16,8 @@ export function ProfileSetupForm() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [displayName, setDisplayName] = useState("");
-  const [avatarChoice, setAvatarChoice] = useState(avatarOptions[0].value);
+  const [username, setUsername] = useState("");
+  const [avatarKey, setAvatarKey] = useState(avatarOptions[0].value);
   const [bio, setBio] = useState("");
   const [generalLocation, setGeneralLocation] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -37,8 +38,9 @@ export function ProfileSetupForm() {
         const profile = await getProfileForUser(currentUser.id);
 
         if (profile) {
-          setDisplayName(profile.display_name ?? "");
-          setAvatarChoice(profile.avatar_choice ?? avatarOptions[0].value);
+          setDisplayName(profile.display_name);
+          setUsername(profile.username ?? "");
+          setAvatarKey(profile.avatar_key ?? avatarOptions[0].value);
           setBio(profile.bio ?? "");
           setGeneralLocation(profile.general_location ?? "");
         }
@@ -70,7 +72,8 @@ export function ProfileSetupForm() {
     try {
       await saveProfileForUser(user, {
         displayName,
-        avatarChoice,
+        username,
+        avatarKey,
         bio,
         generalLocation
       });
@@ -116,7 +119,7 @@ export function ProfileSetupForm() {
           <form className="space-y-7" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label htmlFor="display-name" className="text-sm font-medium text-slate-800">
-                Display name or username <span className="text-calm-700">*</span>
+                Display name <span className="text-calm-700">*</span>
               </label>
               <input
                 id="display-name"
@@ -134,6 +137,28 @@ export function ProfileSetupForm() {
               </p>
             </div>
 
+            <div className="space-y-2">
+              <label htmlFor="username" className="text-sm font-medium text-slate-800">
+                Username <span className="text-calm-700">*</span>
+              </label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                placeholder="littlewinsparent"
+                required
+                minLength={3}
+                maxLength={30}
+                pattern="[A-Za-z0-9_]+"
+                className="w-full rounded-2xl border border-calm-100 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-calm-300 focus:ring-2 focus:ring-calm-100"
+              />
+              <p className="text-xs leading-relaxed text-slate-500">
+                Use 3-30 letters, numbers, or underscores. This can be different from your display name.
+              </p>
+            </div>
+
             <fieldset className="space-y-3">
               <legend className="text-sm font-medium text-slate-800">
                 Choose a default avatar <span className="text-slate-500">optional</span>
@@ -148,8 +173,8 @@ export function ProfileSetupForm() {
                       type="radio"
                       name="avatar"
                       value={avatar.value}
-                      checked={avatarChoice === avatar.value}
-                      onChange={(event) => setAvatarChoice(event.target.value)}
+                      checked={avatarKey === avatar.value}
+                      onChange={(event) => setAvatarKey(event.target.value)}
                       className="h-4 w-4 border-calm-200 text-calm-600 focus:ring-calm-500"
                     />
                     <span>{avatar.label}</span>
